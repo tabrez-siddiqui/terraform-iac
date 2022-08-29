@@ -1,4 +1,18 @@
 steps:
+
+- name: 'gcr.io/cloud-builders/gsutil'
+  args:
+    - '-m'
+    - 'rsync'
+    - '-d'
+    - '-r'
+    - 'dags'
+    - 'gs://${_GCS_BUCKET_1}.tfstate/'
+    #Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
+#completed
+steps:
 - id: 'branch name'
   name: 'alpine'
   entrypoint: 'sh'  
