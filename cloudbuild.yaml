@@ -1,11 +1,6 @@
 steps:
 
-- name: 'gcr.io/cloud-builders/gsutil'
-  args:
-    - 'gs://${_GCS_BUCKET_1}.tfstate/'
-    #Logging
-options:
-  logging: CLOUD_LOGGING_ONLY
+
 
 - id: 'branch name dev'
   name: 'alpine'
@@ -65,6 +60,7 @@ options:
       fi 
 # [END tf-plan]
 
+
 # [START tf-apply]
 - id: 'tf apply'
   name: 'hashicorp/terraform:1.0.0'
@@ -80,3 +76,11 @@ options:
         echo "Branch '$dev' does not represent an oficial environment."
         echo "*******************************************************************************"
       fi
+      
+      - name: 'gcr.io/cloud-builders/gsutil'
+  args:
+    - 'gs://${_GCS_BUCKET_1}.tfstate/'
+    #Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
+      
