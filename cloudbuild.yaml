@@ -77,7 +77,7 @@ steps:
         echo "*******************************************************************************"
       fi
       
-      - name: 'gcr.io/cloud-builders/gsutil'
+- name: 'gcr.io/cloud-builders/gsutil'
   args:
     - 'gs://${_GCS_BUCKET_1}.tfstate/'
     #Logging
