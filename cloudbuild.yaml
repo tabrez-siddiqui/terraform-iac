@@ -43,7 +43,7 @@ steps:
   - | 
       if [ -d "environments/$dev/" ]; then
         cd environments/$dev
-        terraform plan
+        terraform apply
       else
         for dir in environments/*/
         do 
