@@ -72,9 +72,7 @@ steps:
         cd environments/$dev      
         terraform apply -auto-approve
       else
-        echo "***************************** SKIPPING APPLYING *******************************"
-        echo "Branch '$dev' does not represent an oficial environment."
-        echo "*******************************************************************************"
+        
       fi
       
 - name: 'gcr.io/cloud-builders/gsutil'
